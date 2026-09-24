@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Matias Gonzalez â€” Backend Developer</title>
+  <title>Matias Gonzalez — Backend Developer</title>
   <meta name="description" content="Backend developer (trainee) from Buenos Aires. Django REST APIs, tests, Docker, Mercado Pago. Live demo and GitHub." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,7 +47,7 @@
       font-family: "Space Grotesk", sans-serif;
       font-weight: 700; letter-spacing: -0.02em;
     }
-    .brand span { color: var(--accent); }
+    .brand .dot { color: var(--accent); }
     .nav-links { display: flex; gap: 16px; font-size: 14px; color: var(--muted); }
     .nav-links a:hover { color: var(--text); }
     .btn {
@@ -67,7 +67,7 @@
       font-size: 13px; color: var(--accent); font-weight: 600;
       text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;
     }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.15); }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.15); }
     h1 {
       font-family: "Space Grotesk", sans-serif;
       font-size: clamp(2rem, 5vw, 3.2rem);
@@ -80,7 +80,7 @@
       display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 28px;
       color: var(--muted); font-size: 14px;
     }
-    section { padding: 48px 0; }
+    section { padding: 48px 0; scroll-margin-top: 72px; }
     h2 {
       font-family: "Space Grotesk", sans-serif;
       font-size: 1.4rem; margin-bottom: 8px; letter-spacing: -0.02em;
@@ -109,9 +109,7 @@
       display: block;
     }
     .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; }
-    .stack {
-      display: flex; flex-wrap: wrap; gap: 10px;
-    }
+    .stack { display: flex; flex-wrap: wrap; gap: 10px; }
     .stack span {
       border: 1px solid var(--line); background: rgba(255,255,255,0.03);
       border-radius: 10px; padding: 8px 12px; font-size: 14px; color: var(--text);
@@ -142,7 +140,7 @@
 <body>
   <header>
     <div class="wrap nav">
-      <div class="brand">Matias<span>.</span>Gonzalez</div>
+      <div class="brand">Matias Gonzalez</div>
       <nav class="nav-links">
         <a href="#project">Project</a>
         <a href="#stack">Stack</a>
@@ -159,7 +157,7 @@
   <main>
     <section class="hero">
       <div class="wrap">
-        <div class="eyebrow"><span class="dot"></span> Available for trainee / junior roles</div>
+        <div class="eyebrow"><span class="status-dot"></span> Available for trainee / junior roles</div>
         <h1>Backend developer building <em>APIs that ship</em>.</h1>
         <p class="lead">
           Buenos Aires, Argentina. I build Django REST services with tests, Docker and
@@ -172,8 +170,8 @@
           <a class="btn btn-ghost" href="https://github.com/matiasglez/ecommerce-backend" target="_blank" rel="noreferrer">Backend repo</a>
         </div>
         <div class="meta-row">
-          <span>Remote &amp; hybrid Â· onsite OK</span>
-          <span>Python Â· Django Â· PostgreSQL Â· Docker</span>
+          <span>Remote &amp; hybrid · onsite OK</span>
+          <span>Python · Django · PostgreSQL · Docker</span>
           <span>English A2 (in progress)</span>
         </div>
       </div>
@@ -190,7 +188,7 @@
           <article class="card">
             <img class="shot" src="https://raw.githubusercontent.com/matiasglez/ecommerce-backend/main/docs/screenshots/home.png" alt="VOLT Store storefront screenshot" />
             <div class="card-body">
-              <h3>E-commerce API â€” Django REST Framework</h3>
+              <h3>E-commerce API — Django REST Framework</h3>
               <div class="tags">
                 <span class="tag">Python</span><span class="tag">Django</span><span class="tag">DRF</span>
                 <span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">JWT</span>
@@ -222,24 +220,29 @@
               <div class="card-actions">
                 <a class="btn btn-ghost" href="https://github.com/matiasglez/volt-store" target="_blank" rel="noreferrer">Front repo</a>
               </div>
-              <hr style="border:none;border-top:1px solid var(--line);margin:20px 0;" />
-              <h3 style="font-size:1rem;">Education</h3>
-              <div class="edu" style="margin-top:12px;">
-                <div class="edu-item">
-                  <strong>Tecnicatura en ProgramaciÃ³n â€” UNAB</strong>
-                  <span>1st year, 2nd semester Â· in progress (2026)</span>
-                </div>
-                <div class="edu-item">
-                  <strong>CS50P â€” Harvard University</strong>
-                  <span>David J. Malan Â· Mayâ€“Aug 2026 Â· certificate</span>
-                </div>
-                <div class="edu-item">
-                  <strong>Python 3 + Django/Flask â€” Udemy</strong>
-                  <span>VÃ­ctor Robles Â· 30.5h Â· Dec 2024 Â· certificate</span>
-                </div>
-              </div>
             </div>
           </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="wrap">
+        <h2>Education</h2>
+        <p class="section-sub">Formal studies and certificates.</p>
+        <div class="edu">
+          <div class="edu-item">
+            <strong>Tecnicatura en Programación — UNAB</strong>
+            <span>1st year, 2nd semester · in progress (2026)</span>
+          </div>
+          <div class="edu-item">
+            <strong>CS50P — Harvard University</strong>
+            <span>David J. Malan · May–Aug 2026 · certificate</span>
+          </div>
+          <div class="edu-item">
+            <strong>Python 3 + Django/Flask — Udemy</strong>
+            <span>Víctor Robles · 30.5h · Dec 2024 · certificate</span>
+          </div>
         </div>
       </div>
     </section>
@@ -261,8 +264,8 @@
       <div class="wrap">
         <div class="contact-box">
           <div>
-            <h2 style="margin-bottom:4px;">Letâ€™s talk</h2>
-            <p style="color:var(--muted);">Open to trainee / junior backend roles â€” remote, hybrid or Buenos Aires onsite.</p>
+            <h2 style="margin-bottom:4px;">Let's talk</h2>
+            <p style="color:var(--muted);">Open to trainee / junior backend roles — remote, hybrid or Buenos Aires onsite.</p>
           </div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;">
             <a class="btn btn-primary" href="mailto:matiasezequielgonzalez365@gmail.com">matiasezequielgonzalez365@gmail.com</a>
@@ -276,8 +279,8 @@
   </main>
 
   <footer class="wrap">
-    <span>Â© 2026 Matias Gonzalez Â· Buenos Aires</span>
-    <span>Built as a static portfolio â€” backend is the product.</span>
+    <span>© 2026 Matias Gonzalez · Buenos Aires</span>
+    <span>Built as a static portfolio — backend is the product.</span>
   </footer>
 </body>
 </html>
