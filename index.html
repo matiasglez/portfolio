@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matias Gonzalez — Backend Developer</title>
+  <meta name="description" content="Backend developer (trainee) from Buenos Aires. Django REST APIs, tests, Docker, Mercado Pago. Live demo and GitHub." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #121a31;
+      --panel-2: #182242;
+      --text: #eef2ff;
+      --muted: #9aa6c3;
+      --accent: #22d3ee;
+      --accent-2: #a78bfa;
+      --line: rgba(255, 255, 255, 0.08);
+      --ok: #34d399;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(34, 211, 238, 0.12), transparent 50%),
+        radial-gradient(900px 500px at 100% 0%, rgba(167, 139, 250, 0.12), transparent 45%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1040px, calc(100% - 32px)); margin: 0 auto; }
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(11, 16, 32, 0.75);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 0; gap: 12px;
+    }
+    .brand {
+      font-family: "Space Grotesk", sans-serif;
+      font-weight: 700; letter-spacing: -0.02em;
+    }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; gap: 16px; font-size: 14px; color: var(--muted); }
+    .nav-links a:hover { color: var(--text); }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      border-radius: 999px; padding: 10px 16px;
+      font-size: 14px; font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #06222a; }
+    .btn-ghost { border-color: var(--line); color: var(--text); background: rgba(255,255,255,0.03); }
+    .btn-outline { border-color: rgba(34, 211, 238, 0.45); color: var(--accent); }
+    .hero { padding: 72px 0 48px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--accent); font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px;
+    }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.15); }
+    h1 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 14px;
+    }
+    h1 em { font-style: normal; color: var(--accent); }
+    .lead { color: var(--muted); font-size: 1.05rem; max-width: 640px; margin-bottom: 24px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .meta-row {
+      display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 28px;
+      color: var(--muted); font-size: 14px;
+    }
+    section { padding: 48px 0; }
+    h2 {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.4rem; margin-bottom: 8px; letter-spacing: -0.02em;
+    }
+    .section-sub { color: var(--muted); margin-bottom: 24px; max-width: 620px; }
+    .card {
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+    .card-body { padding: 22px; }
+    .card h3 { font-size: 1.15rem; margin-bottom: 6px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; }
+    .tag {
+      font-size: 12px; padding: 4px 10px; border-radius: 999px;
+      background: rgba(34, 211, 238, 0.1); color: var(--accent);
+      border: 1px solid rgba(34, 211, 238, 0.2);
+    }
+    .bullets { padding-left: 18px; color: var(--muted); }
+    .bullets li { margin-bottom: 6px; }
+    .card-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+    .shot {
+      width: 100%; height: 240px; object-fit: cover; object-position: top;
+      border-bottom: 1px solid var(--line); background: #0a0f1f;
+      display: block;
+    }
+    .grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 18px; }
+    .stack {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .stack span {
+      border: 1px solid var(--line); background: rgba(255,255,255,0.03);
+      border-radius: 10px; padding: 8px 12px; font-size: 14px; color: var(--text);
+    }
+    .edu { display: grid; gap: 12px; }
+    .edu-item {
+      border-left: 2px solid var(--accent-2); padding: 4px 0 4px 14px;
+    }
+    .edu-item strong { display: block; }
+    .edu-item span { color: var(--muted); font-size: 14px; }
+    .contact-box {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+      background: rgba(34, 211, 238, 0.06); border: 1px solid rgba(34, 211, 238, 0.18);
+      border-radius: 18px; padding: 22px;
+    }
+    footer {
+      border-top: 1px solid var(--line); padding: 24px 0 40px;
+      color: var(--muted); font-size: 14px;
+      display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+    }
+    @media (max-width: 800px) {
+      .grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .shot { height: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">Matias<span>.</span>Gonzalez</div>
+      <nav class="nav-links">
+        <a href="#project">Project</a>
+        <a href="#stack">Stack</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div style="display:flex;gap:8px;">
+        <a class="btn btn-ghost" href="https://github.com/matiasglez" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="btn btn-primary" href="mailto:matiasezequielgonzalez365@gmail.com">Email</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow"><span class="dot"></span> Available for trainee / junior roles</div>
+        <h1>Backend developer building <em>APIs that ship</em>.</h1>
+        <p class="lead">
+          Buenos Aires, Argentina. I build Django REST services with tests, Docker and
+          real payment flows. Main project: a production e-commerce API with JWT, stock
+          locking and Mercado Pago webhooks.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://volt-store-plum.vercel.app" target="_blank" rel="noreferrer">Live demo</a>
+          <a class="btn btn-outline" href="https://volt-matiasglez-ecommerce.onrender.com/api/schema/swagger-ui/" target="_blank" rel="noreferrer">Swagger</a>
+          <a class="btn btn-ghost" href="https://github.com/matiasglez/ecommerce-backend" target="_blank" rel="noreferrer">Backend repo</a>
+        </div>
+        <div class="meta-row">
+          <span>Remote &amp; hybrid · onsite OK</span>
+          <span>Python · Django · PostgreSQL · Docker</span>
+          <span>English A2 (in progress)</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="project">
+      <div class="wrap">
+        <h2>Featured project</h2>
+        <p class="section-sub">
+          The portfolio centerpiece is the <strong>backend</strong>. VOLT Store is only a
+          thin frontend so anyone can click through the flow without Swagger.
+        </p>
+        <div class="grid">
+          <article class="card">
+            <img class="shot" src="https://raw.githubusercontent.com/matiasglez/ecommerce-backend/main/docs/screenshots/home.png" alt="VOLT Store storefront screenshot" />
+            <div class="card-body">
+              <h3>E-commerce API — Django REST Framework</h3>
+              <div class="tags">
+                <span class="tag">Python</span><span class="tag">Django</span><span class="tag">DRF</span>
+                <span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">JWT</span>
+                <span class="tag">Mercado Pago</span><span class="tag">78 tests</span>
+              </div>
+              <ul class="bullets">
+                <li>Checkout with transactions + <code>select_for_update</code> to prevent overselling.</li>
+                <li>Idempotent Mercado Pago webhook with HMAC-SHA256 verification.</li>
+                <li>CI on GitHub Actions, deploy on Render, OpenAPI docs.</li>
+              </ul>
+              <div class="card-actions">
+                <a class="btn btn-primary" href="https://volt-store-plum.vercel.app" target="_blank" rel="noreferrer">Demo</a>
+                <a class="btn btn-outline" href="https://volt-matiasglez-ecommerce.onrender.com/api/schema/swagger-ui/" target="_blank" rel="noreferrer">Swagger</a>
+                <a class="btn btn-ghost" href="https://github.com/matiasglez/ecommerce-backend" target="_blank" rel="noreferrer">Repo</a>
+              </div>
+            </div>
+          </article>
+
+          <aside class="card">
+            <div class="card-body">
+              <h3>Frontend demo</h3>
+              <p style="color:var(--muted);margin-top:6px;">
+                VOLT Store (Next.js + TypeScript) consumes the API: register, cart,
+                checkout with MOCK or Mercado Pago. Secondary to the backend.
+              </p>
+              <div class="tags">
+                <span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Tailwind</span>
+              </div>
+              <div class="card-actions">
+                <a class="btn btn-ghost" href="https://github.com/matiasglez/volt-store" target="_blank" rel="noreferrer">Front repo</a>
+              </div>
+              <hr style="border:none;border-top:1px solid var(--line);margin:20px 0;" />
+              <h3 style="font-size:1rem;">Education</h3>
+              <div class="edu" style="margin-top:12px;">
+                <div class="edu-item">
+                  <strong>Tecnicatura en Programación — UNAB</strong>
+                  <span>1st year, 2nd semester · in progress (2026)</span>
+                </div>
+                <div class="edu-item">
+                  <strong>CS50P — Harvard University</strong>
+                  <span>David J. Malan · May–Aug 2026 · certificate</span>
+                </div>
+                <div class="edu-item">
+                  <strong>Python 3 + Django/Flask — Udemy</strong>
+                  <span>Víctor Robles · 30.5h · Dec 2024 · certificate</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="wrap">
+        <h2>Stack</h2>
+        <p class="section-sub">What I use to build and ship backend services.</p>
+        <div class="stack">
+          <span>Python</span><span>Django</span><span>Django REST Framework</span>
+          <span>PostgreSQL</span><span>Docker</span><span>JWT</span>
+          <span>REST</span><span>Git / GitHub</span><span>GitHub Actions</span>
+          <span>Linux (basic)</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-box">
+          <div>
+            <h2 style="margin-bottom:4px;">Let’s talk</h2>
+            <p style="color:var(--muted);">Open to trainee / junior backend roles — remote, hybrid or Buenos Aires onsite.</p>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <a class="btn btn-primary" href="mailto:matiasezequielgonzalez365@gmail.com">matiasezequielgonzalez365@gmail.com</a>
+            <a class="btn btn-ghost" href="https://github.com/matiasglez" target="_blank" rel="noreferrer">github.com/matiasglez</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© 2026 Matias Gonzalez · Buenos Aires</span>
+    <span>Built as a static portfolio — backend is the product.</span>
+  </footer>
+</body>
+</html>
